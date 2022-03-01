@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @livewireStyles()
 </head>
 <body class="bg-orange-100">
 
@@ -33,5 +34,6 @@
     <footer class="text-center my-5">
         <div>&copy; {{ config('app.name') }}</div>
     </footer>
+    @livewireScripts()
 </body>
 </html>
