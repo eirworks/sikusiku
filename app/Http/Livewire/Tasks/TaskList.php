@@ -8,6 +8,7 @@ use Livewire\Component;
 class TaskList extends Component
 {
     public $tasks = [];
+    public $filterDone = 0;
 
     protected $listeners = [
         'taskCreated' => 'onTaskCreated',
@@ -16,7 +17,14 @@ class TaskList extends Component
     public function getTasks()
     {
         $tasks = Task::where('user_id', auth()->id())
-            ->orderBy('done_at', 'asc')
+            // ->orderBy('done_at', 'asc')
+            ->when($this->filterDone, function($q) {
+                if ($this->filterDone == 1) {
+                    $q->whereNull('done_at');
+                } else {
+                    $q->whereNotNull('done_at');
+                }
+            })
             ->orderBy('id', 'desc')
             ->get()
             ->toArray();
