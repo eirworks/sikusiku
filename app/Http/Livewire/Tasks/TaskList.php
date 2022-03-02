@@ -52,6 +52,10 @@ class TaskList extends Component
         $this->emit('taskUpdated', $task->id);
     }
 
+    public function updatedFilterDone() {
+        $this->getTasks();
+    }
+
     public function render()
     {
         return view('livewire.tasks.task-list');
