@@ -1,5 +1,5 @@
 <div wire:init='getTasks'>
-    <div class="my-3 mx-auto w-1/2 flex">
+    <div class="my-3 md:mx-auto mx-1 md:w-1/2 flex">
         <button @class(['mx-1', 'rounded', 'py-1', 'px-3', 'bg-gray-300' => $filterDone != 0, 'bg-gray-500' => $filterDone == 0, 'text-white' => $filterDone == 0]) class="mx-1 rounded py-1 px-3 bg-gray-500 text-white" wire:click="$set('filterDone', 0)">All</button>
         <button @class(['mx-1', 'rounded', 'py-1', 'px-3', 'bg-gray-300' => $filterDone != 2, 'bg-gray-500' => $filterDone == 2, 'text-white' => $filterDone == 2]) class="mx-1 rounded py-1 px-3 bg-gray-300" wire:click="$set('filterDone', 2)">Done</button>
         <button @class(['mx-1', 'rounded', 'py-1', 'px-3', 'bg-gray-300' => $filterDone != 1, 'bg-gray-500' => $filterDone == 1, 'text-white' => $filterDone == 1]) class="mx-1 rounded py-1 px-3 bg-gray-300" wire:click="$set('filterDone', 1)">Undone</button>
